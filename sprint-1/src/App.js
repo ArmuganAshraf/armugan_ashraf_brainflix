@@ -1,26 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import Logo from './Logo/Logo-brainflix.svg';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+  render(){
+    return(
+      <NavBar />
+    )
+  }
+}
+
+class NavBar extends React.Component{
+  render(){
+    return(
+      <>
+        <img src={Logo} className='nav__logo'/>
+        <input type='text' className='nav__input'></input>
+        <button type='button' className='nav__button'>UPLOAD</button>
+      </>
+    )
+  }
 }
 
 export default App;
