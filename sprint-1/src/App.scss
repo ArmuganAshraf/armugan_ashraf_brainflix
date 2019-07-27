@@ -1,3 +1,30 @@
+@mixin input {
+  border: 2px solid rgba(128, 128, 128, 0.3);
+    border-radius: 5px;
+    background-color: rgba(128, 128, 128, 0.05);
+    width: 85%;
+    height: 35px;
+    margin: 8px 20px 8px 20px;
+    color: black;
+}
+
+@mixin button {
+  border: 2px solid E1E1E1;
+    border-radius: 5px;
+    background-color: #0095FF;
+    width: 68%;
+    height: 40px;
+    color: white;
+    font-size: 1rem;
+    margin-left: 20px;
+}
+
+@mixin userPic {
+  width: 15%;
+  margin: 0 0 0 10px;
+  height: 40px;
+  border-radius: 100%;
+}
 .nav__logo{
   margin: 20px 70px 8px 70px;
   width: 50%;
@@ -11,14 +38,7 @@
     background-image: url(./Icons/SVG/Icon-search.svg);
     background-repeat: no-repeat;
     background-position: 5%;
-    background-size:7%; 
-    border: 2px solid rgba(128, 128, 128, 0.3);
-    border-radius: 5px;
-    background-color: rgba(128, 128, 128, 0.05);
-    width: 85%;
-    height: 35px;
-    margin: 8px 20px 8px 20px;
-    color: black;
+    @include input();
 
     &::placeholder{
       padding-left: 15%;
@@ -35,21 +55,11 @@
     background-image: url(./Icons/SVG/Icon-upload.svg);
     background-repeat: no-repeat;
     background-position: 25%;
-    border: 2px solid E1E1E1;
-    border-radius: 5px;
-    background-color: #0095FF;
-    width: 68%;
-    height: 40px;
-    color: white;
-    font-size: 1rem;
-    margin-left: 20px;
+    @include button;
   }
   
     &--pic{
-      width: 15%;
-      margin: 0 0 0 10px;
-      height: 40px;
-      border-radius: 100%;
+      @include userPic();
     }
 }
 
@@ -88,3 +98,53 @@
     margin: 24px 20px 40px 20px;
   }
 }
+
+.comments{
+  margin: 0 20px;
+  &__user{
+    display: flex;
+    flex-flow: row wrap;
+    &--logo{
+      @include userPic();
+      height: 55px;
+    }
+  &__new{
+    display: flex;
+    flex-flow: column wrap;
+    label{
+      font-size: 0.9rem;
+      color: grey;
+    }
+    &--input{
+      @include input()
+      height: 110px;
+      width: 100%;
+
+      &::placeholder{
+        color: black;
+      }
+    }
+    &--button{
+      @include button;
+      width: 100%;
+    }
+  } 
+  }
+  &__old{ 
+    flex-flow: row wrap;
+    &--logo{
+      @include userPic();
+      height: 55px;
+    }
+    &__name{
+        justify-content:space-between;
+    }
+
+    &__date{
+        color: grey;
+        font-size: 12px;
+    }
+}
+}
+
+
