@@ -101,9 +101,12 @@
 
 .comments{
   margin: 0 20px;
+  
   &__user{
     display: flex;
     flex-flow: row wrap;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.3);
+    padding-bottom: 3%;
     &--logo{
       @include userPic();
       height: 55px;
@@ -116,7 +119,7 @@
       color: grey;
     }
     &--input{
-      @include input()
+      @include input();
       height: 110px;
       width: 100%;
 
@@ -131,20 +134,40 @@
   } 
   }
   &__old{ 
+    display: flex;
     flex-flow: row wrap;
     &--logo{
       @include userPic();
       height: 55px;
     }
-    &__name{
-        justify-content:space-between;
+    &__profile{
+      display: flex;
+      flex-flow: column wrap;
+      &--name{
+        
     }
 
-    &__date{
+    &--date{
         color: grey;
         font-size: 12px;
     }
+
+    &--comment{
+      font-size: 1rem;
+      border-bottom: 2px solid rgba(128, 128, 128, 0.3);
+      padding-bottom: 3%;
+    }
+    }
 }
+}
+.videos{
+  margin: 0 20px;
+  
+  &__header{
+    color: grey;
+  }
+
+  
 }
 
 

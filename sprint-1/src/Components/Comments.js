@@ -20,12 +20,12 @@ class Comments extends React.Component{
           </div>
         </div>
         <div className='comments__old'>
-        <div>
         <img src={Logo2} className='comments__old--logo' alt='old user'/>
-        <p className="comments__old__name">Micheal Lyons
-          <span className="comments__old__date">12/18/2018</span>
+        <div className='comments__old__profile'>
+        <p className="comments__old__profile--name">Micheal Lyons
+          <span className="comments__old__profile--date">12/18/2018</span>
         </p>
-        <p className="comments__old__comment">They BLEW the ROOF off at their
+        <p className="comments__old__profile--comment">They BLEW the ROOF off at their
               last show, once everyone started
               figuring out they were going. This is
               still simply the greatest opening of a
@@ -33,28 +33,29 @@ class Comments extends React.Component{
         </p>
         </div>
         <img src={Logo2} className='comments__old--logo' alt='old user'/>
-        <p className="comments__old__name">Gary Wong
-          <span className="comments__old__date">12/18/2018</span>
+        <div className='comments__old__profile'></div>
+        <p className="comments__old__profile--name">Gary Wong
+          <span className="comments__old__profile--date">12/18/2018</span>
         </p>
-        <p className="comments__old__comment">Every time I see him shred I feel so
+        <p className="comments__old__profile--comment">Every time I see him shred I feel so
               motivated to get off my couch and
               hop on my board. He’s so talented! I
               wish I can ride like him one day so I
               can really enjoy myself!
         </p>
-        <div>
 
         <div>
-        <img src={Logo2} className='comments__old--logo' alt='old user'/>
-        <p className="comments__old__name">Theodore Duncan
-          <span className="comments__old__date">11/15/2018</span>
-        </p>
-        <p className="comments__old__comment">How can someone be so good!!!
-              You can tell he lives for this and
-              loves to do it every day. Everytime I
-              see him I feel instantly happy! He’s
-              definitely my favorite ever!
-        </p>
+          <img src={Logo2} className='comments__old--logo' alt='old user'/>
+          <div className='comments__old__profile'>
+            <p className="comments__old__profile--name">Theodore Duncan
+              <span className="comments__old__profile--date">11/15/2018</span>
+            </p>
+            <p className="comments__old__profile--comment">How can someone be so good!!!
+                  You can tell he lives for this and
+                  loves to do it every day. Everytime I
+                  see him I feel instantly happy! He’s
+                  definitely my favorite ever!
+            </p>
         </div>
         </div>
       </div>
