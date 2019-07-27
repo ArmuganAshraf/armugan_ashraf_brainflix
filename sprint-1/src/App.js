@@ -5,13 +5,17 @@ import Logo from './Logo/Logo-brainflix.svg';
 import HeroImage from './Images/video-list-0.jpg';
 import Views from './Icons/SVG/Icon-views.svg';
 import Likes from './Icons/SVG/Icon-likes.svg';
+import Comments from './Components/Comments.js';
+import SideVideos from './Components/SideVideos.js';
 
 class App extends React.Component{
   render(){
     return(
       <>
-      <NavBar />
-      <Hero />
+        <NavBar />
+        <Hero />
+        <Comments />
+        <SideVideos />
       </>
     )
   }
@@ -48,7 +52,7 @@ class Hero extends React.Component{
 
           <div className='hero__header'>
             <h1>BMX Rampage: 2018 Highlights</h1>
-            
+
               <div>
                 <p>By Red Cow <span>12/18/2018</span></p>
               </div>
