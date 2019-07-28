@@ -160,6 +160,7 @@
     }
 }
 }
+
 .videos{
   margin: 0 20px;
   
@@ -167,7 +168,13 @@
     color: grey;
   }
 
-  
+  &__list{
+    &--image{
+      width: 120px;
+      height: 72px;
+      object-fit: cover;
+    }
+  }
 }
 
 

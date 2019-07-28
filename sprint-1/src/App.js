@@ -165,12 +165,14 @@ class SideVideos extends React.Component {
         <ul className='videos__list'>{
           VideoList.map(video => (
             <li key = {video.id}>
-            <div className='videos__list--title'><h3>{video.title}</h3>
-            <div className='videos__list--channel'>{video.channel}</div></div>
+            <div className='videos__list--title'>
+              <h3>{video.title}</h3>
+              <div className='videos__list--channel'>{video.channel}</div>
+            </div>
             <div className='videos__list--image'>{video.image}</div>
             </li>
           ))
-        }</ul>
+          }</ul>
       </div>
     </>
     )
