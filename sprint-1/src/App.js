@@ -117,9 +117,13 @@ class Hero extends React.Component{
     return(
       <>
         <div className='hero'>
-          <video poster={HeroImage} className='hero__image'>
-            <source src={HeroObject.image} type="video/webm" />
+          <div>
+          <video width='100%' height='183px'controls poster={HeroImage} className='hero__image'>
           </video>
+          <div>
+            
+          </div>
+        </div>
 
           <div className='hero__header'>
             <h1>{HeroObject.title}</h1>
@@ -162,14 +166,16 @@ class SideVideos extends React.Component {
       <>
         <div className='videos'>
         <h4 className='videos__header'>NEXT VIDEOS</h4>
-        <ul className='videos__list'>{
+        <ul>{
           VideoList.map(video => (
             <li key = {video.id}>
-            <div className='videos__list--title'>
-              <h3>{video.title}</h3>
-              <div className='videos__list--channel'>{video.channel}</div>
+            <div className='videos__list'>
+              <div>{video.image}</div>
+              <div className='videos__list--title'>
+                <p>{video.title}</p>
+                <p className='videos__list--channel'><span>{video.channel}</span></p>
+              </div>
             </div>
-            <div className='videos__list--image'>{video.image}</div>
             </li>
           ))
           }</ul>

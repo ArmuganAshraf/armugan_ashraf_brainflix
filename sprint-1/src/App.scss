@@ -1,11 +1,22 @@
+@font-face{
+  font-family: "bold";
+  src: url('./_Global Font/AvenirNextProLT/Alternative files/Linotype - Avenir Next LT Pro Bold.ttf') format('opentype');
+}
+@font-face{
+  font-family: "medium";
+  src: url('./_Global Font/AvenirNextProLT/Linotype - AvenirNextLTPro-Medium.otf') format('opentype');
+}
+@font-face{
+  font-family: "regular";
+  src: url('./_Global Font/AvenirNextProLT/Linotype - AvenirNextLTPro-Regular.otf') format('opentype');
+}
 @mixin input {
   border: 2px solid rgba(128, 128, 128, 0.3);
     border-radius: 5px;
     background-color: rgba(128, 128, 128, 0.05);
-    width: 85%;
+    width: 100%;
     height: 35px;
     margin: 8px 20px 8px 20px;
-    color: black;
 }
 
 @mixin button {
@@ -25,7 +36,15 @@
   height: 40px;
   border-radius: 100%;
 }
+
+@mixin table{
+   @media (min-width:425px) and (max-width:1023px){
+     @content;
+   }
+}
 .nav__logo{
+  display: flex;
+  justify-content: center;
   margin: 20px 70px 8px 70px;
   width: 50%;
   height: 50%;
@@ -33,6 +52,7 @@
 
 .nav__search{
   display: flex;
+  justify-content: center;
 
   &--input{
     background-image: url(./Icons/SVG/Icon-search.svg);
@@ -42,7 +62,8 @@
 
     &::placeholder{
       padding-left: 15%;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
+      color: black;
     }
   }
 }
@@ -64,18 +85,29 @@
 }
 
 .hero{
+  video{
+    background-color: black;
+  }
   &__image{
     height: 183px;
     width: 100%;
-    margin: 16px 0 32px 0;
+    margin: 16px 0 32px 20px;
+  }
+  &__icon-play{
+    background-color: black;
+    
   }
   &__header{
     margin: 0 20px;
 
-    span{
-      margin-left: 3%;
-      color: grey;
+    p{
+      font-family: 'medium';
+      span{
+        margin-left: 3%;
+        color: grey;
+      }
     }
+    
   }
   &__info{
     display: flex;
@@ -101,28 +133,45 @@
 
 .comments{
   margin: 0 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   
   &__user{
     display: flex;
-    flex-flow: row wrap;
+    flex-direction: row;
     border-bottom: 2px solid rgba(128, 128, 128, 0.3);
     padding-bottom: 3%;
-    &--logo{
-      @include userPic();
-      height: 55px;
-    }
+    margin-right:0;
+
   &__new{
     display: flex;
-    flex-flow: column wrap;
+    flex-wrap: row wrap;
+
+    &--logo{
+      @include userPic();
+      width: 60px;
+      height:60px;
+      margin-left: 0;
+    }
+   
     label{
       font-size: 0.9rem;
+      font-family: 'medium';
       color: grey;
+      margin-bottom: 5px;
+      margin-left: 5px;
     }
+    div{
+      display: flex;
+      flex-flow:column wrap;
+    }
+
     &--input{
       @include input();
       height: 110px;
       width: 100%;
-
+      font-family: 'regular';
       &::placeholder{
         color: black;
       }
@@ -136,20 +185,35 @@
   &__old{ 
     display: flex;
     flex-flow: row wrap;
-    &--logo{
-      @include userPic();
-      height: 55px;
-    }
-    &__profile{
-      display: flex;
-      flex-flow: column wrap;
-      &--name{
-        
+    margin-top: 3%;
+
+    div{
+      display:flex;
+      flex-direction: row;
     }
 
+    p{
+      display: flex;
+      flex-direction: row wrap;
+    }
+    &--logo{
+      @include userPic();
+      margin-left: 0;
+      height: 60px;
+      width: 60px;
+      margin-right: 5px;
+    }
+    &__profile{
+      flex-flow: column wrap;
+      
+      &--name{
+        font-family: 'medium';
+        
+      }
     &--date{
         color: grey;
-        font-size: 12px;
+        font-size: 16px;
+        font-family: 'regular';
     }
 
     &--comment{
@@ -162,17 +226,48 @@
 }
 
 .videos{
-  margin: 0 20px;
+  width: 100%;
+
   
   &__header{
     color: grey;
+    margin: 20px 20px 0 20px;
   }
-
   &__list{
-    &--image{
-      width: 120px;
-      height: 72px;
-      object-fit: cover;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding-right: 7%;
+    }
+
+  ul{
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+    width: 100%;
+    padding: 20px;
+    
+    li{
+      width: 100%;
+      img{
+        height: 70px;
+        width: 120px;
+        margin-bottom: 24px;
+        margin-top: 18px;
+      }
+
+      p{
+        display: flex;
+        flex-direction: column;
+        padding-left: 5%;
+        font-family: 'bold';
+        font-size: 1rem;
+        margin-right: 0;
+      }
+
+      span{
+        font-family: 'medium';
+      }
     }
   }
 }

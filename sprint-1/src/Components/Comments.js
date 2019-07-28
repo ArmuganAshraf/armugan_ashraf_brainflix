@@ -12,14 +12,19 @@ class Comments extends React.Component{
         </div>
 
         <div className='comments__user'>
-          <img src={Logo1} className='comments__user--logo' alt='Mohan Muruge'/>
           <div className='comments__user__new'>
+          <img src={Logo1} className='comments__user__new--logo' alt='Mohan Muruge'/>
+          <div >
+            <div>
             <label className='comments____user__new--label'>JOIN THE CONVERSATION</label>
             <input type='textarea' className='comments__user__new--input' placeholder='Write comments here' />
             <button className='comments__user__new--button'>COMMENT</button>
+            </div>
+          </div>
           </div>
         </div>
         <div className='comments__old'>
+        <div>
         <img src={Logo2} className='comments__old--logo' alt='old user'/>
         <div className='comments__old__profile'>
         <p className="comments__old__profile--name">Micheal Lyons
@@ -32,8 +37,10 @@ class Comments extends React.Component{
               concert I have EVER witnessed.
         </p>
         </div>
+        </div>
+        <div>
         <img src={Logo2} className='comments__old--logo' alt='old user'/>
-        <div className='comments__old__profile'></div>
+        <div className='comments__old__profile'>
         <p className="comments__old__profile--name">Gary Wong
           <span className="comments__old__profile--date">12/18/2018</span>
         </p>
@@ -43,7 +50,8 @@ class Comments extends React.Component{
               wish I can ride like him one day so I
               can really enjoy myself!
         </p>
-
+        </div>
+        </div>
         <div>
           <img src={Logo2} className='comments__old--logo' alt='old user'/>
           <div className='comments__old__profile'>
