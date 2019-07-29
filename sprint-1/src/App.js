@@ -82,10 +82,22 @@ class App extends React.Component{
     const sideVideos = videos.filter(video => video.id !== heroObject.id);
     return(
       <>
+      <div>
         <NavBar />
         <Hero HeroObject ={heroObject}/>
-        <Comments />
-        <SideVideos VideoList={sideVideos}/>
+        <div className='alignment'>
+          <div className="alignment__components">
+            <HeroInfo HeroObject ={heroObject}/>
+            <Comments />
+          </div>
+          <div>
+            <SideVideos VideoList={sideVideos}/>
+          </div>
+        </div>
+        
+        
+        </div>
+        
       </>
     )
   }
@@ -112,21 +124,13 @@ class NavBar extends React.Component{
   }
 }
 
-class Hero extends React.Component{
+class HeroInfo extends React.Component{
   render(){
     const {HeroObject} = this.props
     return(
       <>
-        <div className='hero'>
-          <div>
-          <video width='100%' height='183px'controls poster={HeroImage} className='hero__image'>
-          </video>
-          <div>
-            
-          </div>
-        </div>
-
-          <div className='hero__header'>
+        <div className = "hero">
+        <div className='hero__header'>
             <h1>{HeroObject.title}</h1>
               <div className='hero__icons'>
               <div>
@@ -152,6 +156,23 @@ class Hero extends React.Component{
           who won the event for the second time -- eight years
           after his first Red Cow Rampage title
           </div>
+        </div>
+        
+      </>
+    );
+  }
+}
+
+class Hero extends React.Component{
+  render(){
+    const {HeroObject} = this.props
+    return(
+      <>
+        <div className='hero'>
+          <div>
+          <video width='100%' height='183px'controls poster={HeroImage} className='hero__image'>
+          </video>
+        </div>
           
         </div>
       </>

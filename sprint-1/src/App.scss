@@ -241,7 +241,7 @@
     padding-right:20%;
    }
    @include desktop(){
-     width:40%;
+     width:60%;
      margin-left: 160px;
    }
   }
@@ -253,7 +253,7 @@
   flex-direction: column;
   width: 100%;
   @include desktop(){
-    width: 40%;
+    width: 75%;
     margin-left: 160px;
   }
   
@@ -315,7 +315,7 @@
       margin: 0;
       margin-top: 16px;
       margin-left: 8px;
-      width: 436px;
+      width: 380px;
       font-family: 'regular';
       
       &::placeholder{
@@ -400,8 +400,7 @@
 
 .videos{
   width: 100%;
-
-  
+    
   &__header{
     color: grey;
     margin: 20px 20px 0 20px;
@@ -449,5 +448,18 @@
     }
   }
 }
+.alignment{
+  display: flex;
+  flex-direction: column;
+  @include desktop(){
+    flex-direction: row;
+    
+  }
 
+  &__components{
+    @include desktop(){
+      border-right: 2px solid rgba(128, 128, 128, 0.3);
+    }
+  }
+}
 
