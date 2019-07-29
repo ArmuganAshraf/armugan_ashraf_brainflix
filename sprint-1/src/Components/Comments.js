@@ -13,12 +13,13 @@ class Comments extends React.Component{
 
         <div className='comments__user'>
           <div className='comments__user__new'>
-          <img src={Logo1} className='comments__user__new--logo' alt='Mohan Muruge'/>
+         <div><img src={Logo1} className='comments__user__new--logo' alt='Mohan Muruge'/></div> 
           <div >
-            <div>
             <label className='comments____user__new--label'>JOIN THE CONVERSATION</label>
+            <div className='comments__user__new--submit'>
             <input type='textarea' className='comments__user__new--input' placeholder='Write comments here' />
-            <button className='comments__user__new--button'>COMMENT</button>
+            <input type='textarea' className='comments__user__new--input2' placeholder ='That was easily most spectacular BMX moment ever.'/>
+           <button className='comments__user__new--button'>COMMENT</button>
             </div>
           </div>
           </div>

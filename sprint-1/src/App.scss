@@ -37,71 +37,164 @@
   border-radius: 100%;
 }
 
-@mixin table{
+@mixin tablet{
    @media (min-width:425px) and (max-width:1023px){
      @content;
    }
 }
-.nav__logo{
-  display: flex;
-  justify-content: center;
-  margin: 20px 70px 8px 70px;
-  width: 50%;
-  height: 50%;
-}
-
-.nav__search{
-  display: flex;
-  justify-content: center;
-
-  &--input{
-    background-image: url(./Icons/SVG/Icon-search.svg);
-    background-repeat: no-repeat;
-    background-position: 5%;
-    @include input();
-
-    &::placeholder{
-      padding-left: 15%;
-      font-size: 1.2rem;
-      color: black;
-    }
+@mixin desktop{
+  @media screen and (min-width:1024px){
+    @content;
   }
 }
 
-.nav__upload{
-  display: flex;
-  justify-content:flex-start;
-
-  &--button{
-    background-image: url(./Icons/SVG/Icon-upload.svg);
-    background-repeat: no-repeat;
-    background-position: 25%;
-    @include button;
+@mixin tabletandup{
+  @media screen and (min-width:425px){
+    @content;
+  }
+}
+.nav{
+   @include tablet(){
+     display: flex;
+     width: 100%;
+   }
+   @include desktop(){
+     display: flex;
+     justify-content: center;
+   }
+   
+  &__logo{
+    display: flex;
+    justify-content: center;
+    margin: 20px 70px 8px 70px;
+    height: 40px;
+    @include tabletandup(){
+      margin-left:24px;
+    }
+    @include desktop(){
+      margin: 24px 0 0 120px;
+    }
   }
   
-    &--pic{
-      @include userPic();
+  &__search{
+    
+    @include tabletandup(){
+      flex-wrap: row wrap;
+     }
+    &--input{
+      background-image: url(./Icons/SVG/Icon-search.svg);
+      background-repeat: no-repeat;
+      background-position: 5%;
+      @include input();
+      @include tablet(){
+        display: flex;
+        margin: 24px 0 16px 90px;
+        width: 250px;
+      }
+
+      @include desktop(){
+        margin: 24px 24px auto 509px;
+        width: 350px;
+      }
+      &::placeholder{
+        padding-left: 15%;
+        font-size: 1.2rem;
+        color: black;
+      }
     }
+  }
+  
+  .nav__upload{
+    display: flex;
+    justify-content:flex-start;
+    @include tabletandup{
+      justify-content: flex-end;
+    }
+
+    &--button{
+      background-image: url(./Icons/SVG/Icon-upload.svg);
+      background-repeat: no-repeat;
+      background-position: 25%;
+      @include button;
+      @include tabletandup(){
+        display: flex;
+        justify-content: space-evenly;
+        padding-left: 10%;
+        margin:24px 24px 16px 24px;
+        width: 100px;
+        font-size: 12px;
+        font-family: 'bold';
+        background-position: 10%;
+      }
+      @include desktop(){
+        justify-content: center;
+
+      }
+    }
+    
+      &--pic{
+      @include userPic();
+      @include tabletandup(){
+        margin:24px 0 16px 0;
+        width: 30%;
+        height: 45px;
+      }
+      @include desktop(){
+        margin-right: 100px;
+        width: 15%;
+      }
+    }
+  }
 }
+
 
 .hero{
   video{
     background-color: black;
+    width: 100%;
   }
   &__image{
     height: 183px;
     width: 100%;
     margin: 16px 0 32px 20px;
+
+    @include tabletandup(){
+      display: flex;
+      justify-content: center;
+      height: 400px;
+    }
+    @include desktop(){
+      width:944px;
+      height: 540px;
+    }
   }
-  &__icon-play{
-    background-color: black;
-    
-  }
+  
   &__header{
     margin: 0 20px;
 
+    @include tabletandup(){
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    @include desktop(){
+      margin: 0 160px 0 160px;
+      font-size: 1rem;
+    }
+
     p{
       font-family: 'medium';
+      margin-right: 10%;
+      @include tabletandup(){
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        width: 100%;
+        padding-right: 16%;
+      }
+      @include desktop(){
+        margin-left: 0;
+        padding-right: 10%;
+      }
       span{
         margin-left: 3%;
         color: grey;
@@ -109,10 +202,28 @@
     }
     
   }
+  &__icons{
+    @include tabletandup{
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      margin-top: 0;
+    }
+    @include desktop(){
+      justify-content: flex-start;
+    }
+  }
   &__info{
     display: flex;
     border-bottom: 2px solid rgba(128, 128, 128, 0.3);
     padding-bottom: 7%;
+    @include tabletandup(){
+      padding-left: 24%;
+      border-bottom: 0;
+    }
+    @include desktop(){
+      padding-left: 0;
+    }
     &--views{
       margin-right: 3%;
     }
@@ -120,14 +231,19 @@
     &--likes{
       margin-right: 3%;
     }
-
-    p{
-      margin-right: 10%;
-    }
   }
   
   &__description{
     margin: 24px 20px 40px 20px;
+    @include tabletandup(){
+    border-top: 2px solid rgba(128, 128, 128, 0.3);
+    padding-top:40px;
+    padding-right:20%;
+   }
+   @include desktop(){
+     width:40%;
+     margin-left: 160px;
+   }
   }
 }
 
@@ -136,6 +252,10 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  @include desktop(){
+    width: 40%;
+    margin-left: 160px;
+  }
   
   &__user{
     display: flex;
@@ -144,27 +264,41 @@
     padding-bottom: 3%;
     margin-right:0;
 
-  &__new{
-    display: flex;
-    flex-wrap: row wrap;
+    &__new{
+      display: flex;
+      flex-wrap: row wrap;
+     
 
-    &--logo{
-      @include userPic();
-      width: 60px;
-      height:60px;
-      margin-left: 0;
-    }
-   
+      &--submit{
+        @include tablet(){
+          display: flex;
+        }
+      }
+
+      &--logo{
+        @include userPic();
+        width: 60px;
+        height:60px;
+        margin-left: 0;
+      }  
     label{
       font-size: 0.9rem;
       font-family: 'medium';
       color: grey;
       margin-bottom: 5px;
       margin-left: 5px;
+      @include tabletandup(){
+        margin-bottom: 20px;
+        position: absolute;
+      }
     }
     div{
       display: flex;
       flex-flow:column wrap;
+      @include tabletandup{
+        display: flex;
+        flex-flow: row nowrap;
+      }
     }
 
     &--input{
@@ -172,13 +306,52 @@
       height: 110px;
       width: 100%;
       font-family: 'regular';
+      @include tablet(){
+        display: none;
+      }
+      @include desktop(){
+        display: flex;
+      @include input();
+      margin: 0;
+      margin-top: 16px;
+      margin-left: 8px;
+      width: 436px;
+      font-family: 'regular';
+      
       &::placeholder{
         color: black;
       }
     }
+    }
+    &--input2{
+      display: none;
+      @include tablet(){
+        display: flex;
+      @include input();
+      margin: 0;
+      margin-top: 16px;
+      margin-left: 16px;
+      width: 440px;
+      font-family: 'regular';
+      
+      &::placeholder{
+        color: black;
+      }
+    }
+      
+    }
     &--button{
       @include button;
       width: 100%;
+      @include tablet(){
+        width: 30%;
+        margin: 16px 40px 24px 16px;
+        align-self: flex-end;
+      }
+      @include desktop(){
+        width: 20%;
+        margin-top:15px;
+      }
     }
   } 
   }
@@ -254,6 +427,11 @@
         width: 120px;
         margin-bottom: 24px;
         margin-top: 18px;
+
+        @include tabletandup(){
+          width: 120px;
+          height: 70px;
+        }
       }
 
       p{

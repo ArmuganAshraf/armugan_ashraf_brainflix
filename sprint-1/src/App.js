@@ -79,7 +79,7 @@ class App extends React.Component{
   render() {
     const {videos} = this.state  
     const heroObject = videos[0];
-    const sideVideos = videos.filter(video => video.id != heroObject.id);
+    const sideVideos = videos.filter(video => video.id !== heroObject.id);
     return(
       <>
         <NavBar />
@@ -95,17 +95,18 @@ class NavBar extends React.Component{
   render(){
     return(
       <>
-        <img src={Logo} className='nav__logo' alt='Brainflix logo'/> 
+        <div className='nav'> 
+          <div className='nav__logo'><img src={Logo} alt='Brainflix logo'/> </div>
+          
+          <div className='nav__search'>
+            <input type='text' className='nav__search--input' placeholder='Search'></input>
+          </div>
 
-        <div className='nav__search'>
-          <input type='text' className='nav__search--input' placeholder='Search'></input>
-        </div>
-
-        <div className='nav__upload'>
-          <button type='button' className='nav__upload--button'>UPLOAD</button>
-          <img src={MainPic} className='nav__upload--pic' alt='Mohan Muruge'/>
-        </div>
-        
+          <div className='nav__upload'>
+            <button type='button' className='nav__upload--button'>UPLOAD</button>
+            <img src={MainPic} className='nav__upload--pic' alt='Mohan Muruge'/>
+          </div>
+        </div> 
       </>
     )
   }
@@ -127,18 +128,18 @@ class Hero extends React.Component{
 
           <div className='hero__header'>
             <h1>{HeroObject.title}</h1>
-
+              <div className='hero__icons'>
               <div>
                 <p>By {HeroObject.channel} <span>12/18/2018</span></p>
               </div>
 
             <div className='hero__info'>
-              <img src={Views} className='hero__info--views' />
+              <img src={Views} className='hero__info--views' alt='views' />
               <p>1,001,023</p>
-              <img src={Likes} className='hero__info--likes'/>
+              <img src={Likes} className='hero__info--likes' alt='views'/>
               <p>110,985</p>
             </div>
-
+            </div>
           </div>
           <div className='hero__description'>
           On a gusty day in Southern Utah, a group of 25
