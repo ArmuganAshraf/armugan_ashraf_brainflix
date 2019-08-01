@@ -125,7 +125,12 @@
         font-size: 12px;
         font-family: 'bold';
         background-position: 10%;
+
       }
+    :link{
+      text-decoration: none;
+     
+    }
       @include desktop(){
         justify-content: center;
 
