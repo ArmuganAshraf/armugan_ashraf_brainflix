@@ -127,8 +127,10 @@
         background-position: 10%;
 
       }
-    :link{
+    a{
       text-decoration: none;
+      color: white;
+      font-family: 'bold';
      
     }
       @include desktop(){
