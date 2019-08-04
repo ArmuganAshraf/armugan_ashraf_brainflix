@@ -20,19 +20,22 @@ class NewPhoto extends React.Component{
       <>
         <div className='upload'>
           <h1>Upload Video</h1>
-          <div>
-            <label>VIDEO THUMBNAIL</label>
-            <img src={Thumbnail} alt='upload photo'/>
+          <div className='upload__content'>
+            <div>
+              <label>VIDEO THUMBNAIL</label>
+              <img src={Thumbnail} alt='upload photo'/>
+            </div>
+            <div className='upload__input'>
+              <label>TITLE YOUR VIDEO</label>
+              <input className="upload__input--input1" type='text' placeholder='Add a title to your video' />
+              <label>ADD A VIDEO DESCRIPTION</label>
+              <input className="upload__input--input2" type='text' placeholder='Add a description of your video'/>
+            </div>
           </div>
-          <div>
-            <label>TITLE YOUR VIDEO</label>
-            <input type='text' placeholder='Add a title to your video' />
-            <label>ADD A VIDEO DESCRIPTION</label>
-            <input type='text' placeholder='Add a description of your video'/>
-          </div>
-          <div>
-            <button className='upload__button1'>PUBLISH</button>
-            <button className='upload__button2'>CANCEL</button>
+            
+          <div className='upload__button'>
+            <button className='upload__button--button1'>PUBLISH</button>
+            <button className='upload__button--button2'>CANCEL</button>
           </div>
           
         </div>
