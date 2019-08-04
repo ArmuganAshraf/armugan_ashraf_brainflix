@@ -17,7 +17,7 @@ class Comments extends React.Component{
   render(){
     const {HeroComments} = this.props
     const heroComments = HeroComments.comments;
-    console.log(heroComments);
+    
     return(
         
       <div className='comments'>

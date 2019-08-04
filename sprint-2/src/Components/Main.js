@@ -19,14 +19,12 @@ class Main extends React.Component{
     componentDidUpdate(){
         const { match } = this.props;
         const videoId = match.params.id;
-        console.log(videoId);
 
         let video = {};
 
         axios.get('https://project-2-api.herokuapp.com/videos/'+videoId+'?api_key='+this.apiKey)
           .then(response => {
             video = response.data;
-            console.log(video);
 
             this.setState({
                 heroVideo: video
@@ -43,19 +41,15 @@ class Main extends React.Component{
         axios.get('https://project-2-api.herokuapp.com/videos?api_key='+this.apiKey)
         .then(response => {
           videos = response.data;
-          console.log(videos);
           video = videos[0];
-          console.log(video);
     
           axios.get('https://project-2-api.herokuapp.com/videos/'+video["id"]+'?api_key='+this.apiKey)
           .then(response => {
             video = response.data;
-            console.log(video);
 
             this.setState({
                 isLoading: false,
                 videos: videos,
-                //sideVideos: videos.filter(tmpVideo => tmpVideo.id !== video.id),
                 heroVideo: video
             });
           })
@@ -70,7 +64,6 @@ class Main extends React.Component{
 
         const sideVideos = videos.filter(video => video.id !== heroVideo.id);
         
-        //const loadingMessage = <span>Loading..</span>;
         return(
             isLoading ? (<div>Loading...</div> ) : (
             <>
