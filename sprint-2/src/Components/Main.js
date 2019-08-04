@@ -13,7 +13,6 @@ class Main extends React.Component{
     state = {
         isLoading: true,
         videos: [],
-        sideVideos: [],
         heroVideo: {}
       }
     
@@ -23,7 +22,6 @@ class Main extends React.Component{
         console.log(videoId);
 
         let video = {};
-        const { videos, sideVideos } = this.state;
 
         axios.get('https://project-2-api.herokuapp.com/videos/'+videoId+'?api_key='+this.apiKey)
           .then(response => {
@@ -31,10 +29,7 @@ class Main extends React.Component{
             console.log(video);
 
             this.setState({
-                isLoading: false,
-                heroVideo: video,
-                videos: videos,
-                sideVideos: videos.filter(tmpVideo => tmpVideo.id !== video.id)
+                heroVideo: video
             });
           })
     }
@@ -60,7 +55,7 @@ class Main extends React.Component{
             this.setState({
                 isLoading: false,
                 videos: videos,
-                sideVideos: videos.filter(tmpVideo => tmpVideo.id !== video.id),
+                //sideVideos: videos.filter(tmpVideo => tmpVideo.id !== video.id),
                 heroVideo: video
             });
           })
@@ -71,7 +66,9 @@ class Main extends React.Component{
     }
 
     render(){
-        const {isLoading, heroVideo, sideVideos} = this.state  
+        const {isLoading, heroVideo, videos} = this.state  
+
+        const sideVideos = videos.filter(video => video.id !== heroVideo.id);
         
         //const loadingMessage = <span>Loading..</span>;
         return(
