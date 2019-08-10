@@ -1,0 +1,627 @@
+@font-face{
+  font-family: "bold";
+  src: url('./_Global Font/AvenirNextProLT/Alternative files/Linotype - Avenir Next LT Pro Bold.ttf') format('opentype');
+}
+@font-face{
+  font-family: "medium";
+  src: url('./_Global Font/AvenirNextProLT/Linotype - AvenirNextLTPro-Medium.otf') format('opentype');
+}
+@font-face{
+  font-family: "regular";
+  src: url('./_Global Font/AvenirNextProLT/Linotype - AvenirNextLTPro-Regular.otf') format('opentype');
+}
+@mixin input {
+  border: 2px solid rgba(128, 128, 128, 0.3);
+    border-radius: 5px;
+    background-color: rgba(128, 128, 128, 0.05);
+    width: 100%;
+    height: 35px;
+    margin: 8px 20px 8px 20px;
+}
+
+@mixin button {
+  border: 2px solid E1E1E1;
+    border-radius: 5px;
+    background-color: #0095FF;
+    width: 68%;
+    height: 40px;
+    color: white;
+    font-size: 1rem;
+    margin-left: 20px;
+}
+
+@mixin userPic {
+  width: 15%;
+  margin: 0 0 0 10px;
+  height: 40px;
+  border-radius: 100%;
+}
+@mixin mobileL {
+  @media (min-width:425px) and (max-width:689px){
+    @content;
+  }
+}
+@mixin tablet{
+   @media (min-width:425px) and (max-width:1023px){
+     @content;
+   }
+}
+@mixin tabletL{
+  @media (min-width:1024px) and (max-width:1214px){
+    @content;
+  }
+}
+@mixin desktop{
+  @media screen and (min-width:1024px){
+    @content;
+  }
+}
+
+@mixin tabletandup{
+  @media screen and (min-width:425px){
+    @content;
+  }
+}
+
+.nav{
+   @include tablet(){
+     display: flex;
+     width: 100%;
+   }
+   @include desktop(){
+     display: flex;
+     justify-content: center;
+   }
+   
+  &__logo{
+    display: flex;
+    justify-content: center;
+    margin: 20px 70px 8px 70px;
+    height: 40px;
+    @include mobileL(){
+      margin-right: 0;
+      margin-left: 0;
+    }
+    @include tabletandup(){
+      margin-left:24px;
+    }
+    @include tabletL(){
+      margin-right: 0;
+      margin-left: 0;
+    }
+    @include desktop(){
+      margin: 24px 0 0 120px;
+    }
+  }
+  
+  &__search{
+    
+    @include tabletandup(){
+      flex-wrap: row wrap;
+     }
+    &--input{
+      background-image: url(./Icons/SVG/Icon-search.svg);
+      background-repeat: no-repeat;
+      background-position: 5%;
+      @include input();
+      @include mobileL(){
+        margin:0;
+      }
+      @include tablet(){
+        display: flex;
+        margin: 24px 0 16px 90px;
+        width: 250px;
+      }
+      @include tabletL(){
+        margin:0;
+      }
+      @include desktop(){
+        margin: 24px 24px auto 509px;
+        width: 350px;
+      }
+      &::placeholder{
+        padding-left: 15%;
+        font-size: 1.2rem;
+        color: black;
+      }
+    }
+  }
+  
+  .nav__upload{
+    display: flex;
+    justify-content:flex-start;
+    @include tabletandup{
+      justify-content: flex-end;
+    }
+
+    &--button{
+      background-image: url(./Icons/SVG/Icon-upload.svg);
+      background-repeat: no-repeat;
+      background-position: 25%;
+      @include button;
+      @include tabletandup(){
+        display: flex;
+        justify-content: space-evenly;
+        padding-left: 10%;
+        margin:24px 24px 16px 24px;
+        width: 100px;
+        font-size: 12px;
+        font-family: 'bold';
+        background-position: 10%;
+
+      }
+    a{
+      text-decoration: none;
+      color: white;
+      font-family: 'bold';
+     
+    }
+      @include desktop(){
+        justify-content: center;
+
+      }
+    }
+    
+      &--pic{
+      @include userPic();
+      @include tabletandup(){
+        margin:24px 0 16px 0;
+        width: 30%;
+        height: 45px;
+      }
+      @include desktop(){
+        margin-right: 100px;
+        width: 15%;
+      }
+    }
+  }
+}
+
+
+.hero{
+  
+  video{
+    background-color: black;
+    width: 100%;
+  }
+  &__image{
+    height: 183px;
+    width: 100%;
+    margin: 16px 0 32px 20px;
+
+    @include tabletandup(){
+      display: flex;
+      justify-content: center;
+      height: 400px;
+    }
+    @include desktop(){
+      width:944px;
+      height: 540px;
+    }
+  }
+  
+  &__header{
+    margin: 0 20px;
+
+    @include tabletandup(){
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    
+    @include desktop(){
+      margin: 0 160px 0 160px;
+      font-size: 1rem;
+    }
+
+    p{
+      font-family: 'medium';
+      margin-right: 10%;
+      @include tabletandup(){
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        width: 100%;
+        padding-right: 16%;
+      }
+      @include desktop(){
+        margin-left: 0;
+        padding-right: 10%;
+      }
+      span{
+        margin-left: 3%;
+        color: grey;
+      }
+    }
+    
+  }
+  &__icons{
+    @include tabletandup{
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      margin-top: 0;
+    }
+    @include desktop(){
+      justify-content: flex-start;
+    }
+  }
+  &__info{
+    display: flex;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.3);
+    padding-bottom: 7%;
+    @include tabletandup(){
+      padding-left: 24%;
+      border-bottom: 0;
+    }
+    @include desktop(){
+      padding-left: 0;
+    }
+    &--views{
+      margin-right: 3%;
+    }
+
+    &--likes{
+      margin-right: 3%;
+    }
+  }
+  
+  &__description{
+    margin: 24px 20px 40px 20px;
+    @include tabletandup(){
+    border-top: 2px solid rgba(128, 128, 128, 0.3);
+    padding-top:40px;
+    padding-right:20%;
+   }
+   @include desktop(){
+     width:60%;
+     margin-left: 160px;
+   }
+  }
+}
+
+.comments{
+  margin: 0 20px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @include desktop(){
+    width: 75%;
+    margin-left: 160px;
+  }
+  
+  &__user{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px solid rgba(128, 128, 128, 0.3);
+    padding-bottom: 3%;
+    margin-right:0;
+
+    &__new{
+      display: flex;
+      flex-wrap: row wrap;
+    
+      &--submit{
+        @include tablet(){
+          display: flex;
+        }
+      }
+
+      &--logo{
+        @include userPic();
+        width: 60px;
+        height:60px;
+        margin-left: 0;
+      }  
+    label{
+      font-size: 0.9rem;
+      font-family: 'medium';
+      color: grey;
+      margin-bottom: 5px;
+      margin-left: 5px;
+      @include tabletandup(){
+        margin-bottom: 20px;
+        position: absolute;
+      }
+    }
+    div{
+      display: flex;
+      flex-flow:column wrap;
+      @include tabletandup{
+        display: flex;
+        flex-flow: row nowrap;
+      }
+    }
+
+    &--input{
+      @include input();
+      height: 110px;
+      width: 100%;
+      font-family: 'regular';
+      @include tablet(){
+        display: none;
+      }
+      @include desktop(){
+        display: flex;
+      @include input();
+      margin: 0;
+      margin-top: 16px;
+      margin-left: 8px;
+      width: 380px;
+      font-family: 'regular';
+      
+      &::placeholder{
+        color: black;
+      }
+    }
+    }
+    &--input2{
+      display: none;
+      
+      @include tablet(){
+        display: flex;
+      @include input();
+      margin: 0;
+      margin-top: 16px;
+      margin-left: 16px;
+      width: 440px;
+      font-family: 'regular';
+      
+      &::placeholder{
+        color: black;
+      }
+    }
+      
+    }
+    &--button{
+      @include button;
+      width: 100%;
+      @include tablet(){
+        width: 30%;
+        margin: 16px 40px 24px 16px;
+        align-self: flex-end;
+      }
+      @include desktop(){
+        width: 20%;
+        margin-top:15px;
+      }
+    }
+  } 
+  }
+  &__old{ 
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 3%;
+
+    div{
+      display:flex;
+      flex-direction: row;
+    }
+
+    p{
+      display: flex;
+      flex-direction: row wrap;
+    }
+    &--logo{
+      @include userPic();
+      margin-left: 0;
+      height: 60px;
+      width: 60px;
+      margin-right: 5px;
+    }
+    &__profile{
+      flex-flow: column wrap;
+      
+      &--name{
+        font-family: 'medium';
+        
+      }
+    &--date{
+        color: grey;
+        font-size: 16px;
+        font-family: 'regular';
+    }
+
+    &--comment{
+      font-size: 1rem;
+      border-bottom: 2px solid rgba(128, 128, 128, 0.3);
+      padding-bottom: 3%;
+    }
+    }
+}
+}
+
+.videos{
+  width: 100%;
+    
+  &__header{
+    color: grey;
+    margin: 20px 20px 0 20px;
+  }
+  &__list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding-right: 7%;
+    }
+
+  ul{
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+    width: 100%;
+    padding: 20px;
+    
+    li{
+      width: 100%;
+      img{
+        height: 70px;
+        width: 120px;
+        margin-bottom: 24px;
+        margin-top: 18px;
+
+        @include tabletandup(){
+          width: 120px;
+          height: 70px;
+        }
+      }
+
+      p{
+        display: flex;
+        flex-direction: column;
+        padding-left: 5%;
+        font-family: 'bold';
+        font-size: 1rem;
+        margin-right: 0;
+      }
+
+      span{
+        font-family: 'medium';
+      }
+    }
+  }
+}
+.alignment{
+  display: flex;
+  flex-direction: column;
+
+  @include desktop(){
+    flex-direction: row;
+  }
+
+  &__components{
+    @include desktop(){
+      border-right: 2px solid rgba(128, 128, 128, 0.3);
+    }
+  }
+}
+
+.upload{
+  display: flex;
+  flex-flow: column wrap;
+  margin-left:20px;
+  border-top: 2px solid rgba(128, 128, 128, 0.3);
+  width: 100%;
+  margin-top:5%;
+
+  &__content{
+    @include desktop(){
+      display: flex;
+      margin: 0 180px 0 180px;
+    }
+  }
+
+  h1{
+    font-family: 'bold';
+    @include desktop(){
+      margin: 20px 180px 0 180px;
+    }
+  }
+  
+  label{
+    font-family: 'bold';
+    color:rgba(128, 128, 128, 0.5);
+    @include tablet(){
+      font-size: 0.8rem;
+      margin: 3% 0;
+    }
+  }
+  img{
+    width: 100%;
+    height:153px;
+    border-radius: 5%;
+
+    @include tabletandup(){
+      width: 344px;
+      height: 183px;
+      display: flex;
+      justify-content: flex-start;
+    }
+  }
+  
+  &__input{
+    @include tabletandup(){
+      margin-bottom: 40px;
+    }
+
+    @include desktop(){
+      margin-left:3%;
+    }
+    &--input1{
+      @include input;
+      margin-left:0;
+  
+      &::placeholder{
+        color: black;
+        @include tabletandup(){
+          font-size: 0.8rem;
+        }
+      }
+    }
+  
+    &--input2{
+      @include input;
+      height: 183px;
+      margin-left:0;
+
+      @include desktop(){
+        height: 94px;
+      }
+      
+      &::placeholder{
+        color: black;
+        @include tabletandup(){
+          font-size: 1rem;
+        }
+      
+      }
+    }
+
+  }
+  
+
+  &__button{
+    @include tabletandup(){
+      display: flex;
+      flex-direction: row-reverse;
+      border-top: 2px solid rgba(128, 128, 128, 0.3);
+    }
+    &--button1{
+      @include button;
+      margin-top: 32px;
+      margin-left:0;
+      width: 100%;
+      font-family: 'bold';
+      @include tabletandup(){
+        width: 160px;
+        height: 40px;
+      }
+    }
+    &--button2{
+      @include button;
+      background-color: white;
+      color:  #0095FF;
+      margin-bottom:24px;
+      margin-top: 24px;
+      margin-left:0;
+      width: 100%;
+      font-family: 'bold';
+  
+      @include tablet(){
+        width: 160px;
+        height: 40px;
+        margin-top:4%;
+        margin-right: 4%;
+      }
+
+      @include desktop(){
+        margin-top: 3.1%;
+        margin-right: 4%;
+        width: 160px;
+        height: 40px;
+      }
+    }
+
+  }
+  
+}
