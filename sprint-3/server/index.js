@@ -1,10 +1,11 @@
 const express = require ('express');
 let data = require ('./data/data');// importing data
+let sidevideos = require('./data/sidevideos')
 const app = express();
 
 app.get("/videos", (req, res) => {
-  res.json(data);
-  console.log(data);
+  res.json(sidevideos);
+  console.log(sidevideos);
 });
 
 app.get('/videos/:id',(req, res)=> {
@@ -14,7 +15,7 @@ app.get('/videos/:id',(req, res)=> {
   if(item){
     res.json(item);
   } else {
-    res.json({message: `item $(itemId) doesnt exist`})
+    res.json({message: `No video with that id exists`})
   }
 });
 
