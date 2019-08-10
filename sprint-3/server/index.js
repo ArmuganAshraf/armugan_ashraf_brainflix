@@ -9,11 +9,11 @@ app.get("/videos", (req, res) => {
 });
 
 app.get('/videos/:id',(req, res)=> {
-  const itemId = req.params.id;
-  const item = data.find(_item => _item.id == itemId);
+  const videoId = req.params.id;
+  const video = data.find(video => video.id == videoId);//this is for the id specific
 
-  if(item){
-    res.json(item);
+  if(video){
+    res.json(video);
   } else {
     res.json({message: `No video with that id exists`})
   }
