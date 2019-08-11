@@ -1,12 +1,7 @@
 const express = require ('express');
 let data = require ('./data/data');// importing data
-let sidevideos = require('./data/sidevideos')
 const app = express();
-
-// app.get("/videos", (req, res) => {
-//   res.json(sidevideos);
-//   console.log(sidevideos);
-// });
+const parser = require('body-parser');
 
 app.get("/videos", (req, res) => {
   const tmpArray = [];
@@ -32,6 +27,17 @@ app.get('/videos/:id',(req, res)=> {
   } else {
     res.json({message: `No video with that id exists`})
   }
+});
+
+app.use(parser.json());
+
+app.post('/videos',(req, res) => {
+  const video = req.body;
+  console.log('adding new video:', video);
+
+  data.push(video)
+
+  res.json(video);
 });
 
 app.listen(8080,function(){
