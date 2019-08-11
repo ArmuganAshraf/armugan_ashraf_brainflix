@@ -22,7 +22,6 @@ class NewPhoto extends React.Component{
       channel: 'Ashraf Production',
       description: document.getElementById('desc_text').value,
       image: 'http://localhost:3000/static/media/Upload-video-preview.c814c81c.jpg'
-      //'https://i.imgur.com/l2Xfgpl.jpg'
     })
     .then(function (response) {
       console.log(response);

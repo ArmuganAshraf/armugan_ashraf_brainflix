@@ -8,8 +8,6 @@ import SideVideos from './SideVideos';
 
 class Main extends React.Component{
 
-    apiKey = '821ec83b-6c7c-4a2a-bdfd-0485c9721996';
-
     state = {
         isLoading: true,
         videos: [],
@@ -26,7 +24,6 @@ class Main extends React.Component{
         axios.get('http://localhost:8080/videos/'+videoId)
           .then(response => {
             video = response.data;
-
             this.setState({
                 heroVideo: video
             });
@@ -42,10 +39,8 @@ class Main extends React.Component{
         let videos = [];
         let video = {};
     
-        //axios.get('https://project-2-api.herokuapp.com/videos?api_key='+this.apiKey)
         axios.get('http://localhost:8080/videos')
         .then(response => {
-            debugger
           videos = response.data;
           video = videos[0];
     
