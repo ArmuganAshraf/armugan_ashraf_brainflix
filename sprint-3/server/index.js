@@ -1,8 +1,11 @@
 const express = require ('express');
+const cors = require('cors');
 let data = require ('./data/data');// importing data
 const app = express();
-const uuidv1 = require('uuid/v4');
+const uuidv4 = require('uuid/v4');
 const parser = require('body-parser');
+
+app.use(cors());
 
 app.get("/videos", (req, res) => {
   const tmpArray = [];
@@ -36,6 +39,7 @@ app.post('/videos',(req, res) => {
   const video = req.body;
   console.log('adding new video:', video);
 
+  video.id = uuidv4();
   data.push(video)
 
   res.json(video);

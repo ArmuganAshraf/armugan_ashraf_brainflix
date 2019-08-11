@@ -20,9 +20,10 @@ class Main extends React.Component{
         const { match } = this.props;
         const videoId = match.params.id;
 
-        let video = {};
+        if(videoId != undefined){
+            let video = {};
 
-        axios.get('https://project-2-api.herokuapp.com/videos/'+videoId+'?api_key='+this.apiKey)
+        axios.get('http://localhost:8080/videos/'+videoId)
           .then(response => {
             video = response.data;
 
@@ -30,6 +31,9 @@ class Main extends React.Component{
                 heroVideo: video
             });
           })
+        }
+
+        
     }
 
     componentDidMount(){
@@ -38,12 +42,14 @@ class Main extends React.Component{
         let videos = [];
         let video = {};
     
-        axios.get('https://project-2-api.herokuapp.com/videos?api_key='+this.apiKey)
+        //axios.get('https://project-2-api.herokuapp.com/videos?api_key='+this.apiKey)
+        axios.get('http://localhost:8080/videos')
         .then(response => {
+            debugger
           videos = response.data;
           video = videos[0];
     
-          axios.get('https://project-2-api.herokuapp.com/videos/'+video["id"]+'?api_key='+this.apiKey)
+          axios.get('http://localhost:8080/videos/'+video["id"])
           .then(response => {
             video = response.data;
 
