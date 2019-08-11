@@ -3,9 +3,24 @@ let data = require ('./data/data');// importing data
 let sidevideos = require('./data/sidevideos')
 const app = express();
 
+// app.get("/videos", (req, res) => {
+//   res.json(sidevideos);
+//   console.log(sidevideos);
+// });
+
 app.get("/videos", (req, res) => {
-  res.json(sidevideos);
-  console.log(sidevideos);
+  const tmpArray = [];
+  data.map((obj, i) => {
+    const tmpObj = {
+      "id": obj.id,
+      "title": obj.title,
+      "channel": obj.channel,
+      "image": obj.image
+    };
+    tmpArray.push(tmpObj);
+  });
+  res.json(tmpArray);
+  console.log(tmpArray);
 });
 
 app.get('/videos/:id',(req, res)=> {
